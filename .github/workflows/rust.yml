@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v7
 
       - name: Install latest rust toolchain
         uses: actions-rs/toolchain@v1
@@ -24,7 +24,7 @@ jobs:
         run: zip -r -9 moss_linux.zip target/release/moss
 
       - name: Upload Package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: moss_linux
           path: moss_linux.zip
@@ -35,7 +35,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v7
 
       - name: Install latest rust toolchain
         uses: actions-rs/toolchain@v1
@@ -51,7 +51,7 @@ jobs:
         run: Compress-Archive -LiteralPath 'target/release/moss.exe' -DestinationPath 'moss_win.zip'
 
       - name: Upload Package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: moss_win
           path: moss_win.zip
@@ -62,7 +62,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v7
 
       - name: Install latest rust toolchain
         uses: actions-rs/toolchain@v1
@@ -79,7 +79,7 @@ jobs:
         run: zip -r -9 moss_darwin.zip target/release/moss
 
       - name: Upload Package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: moss_darwin
           path: moss_darwin.zip
@@ -91,7 +91,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v7
 
       - name: Install latest rust toolchain
         uses: actions-rs/toolchain@v1
@@ -104,7 +104,7 @@ jobs:
         run: sed -n '/^version/s/version\s*=\s*//p'  Cargo.toml | sed 's/"//g' > version.txt
 
       - name: Upload version information
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: version
           path: version.txt
@@ -116,7 +116,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download all packages
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v8
 
       - name: Display structure of downloaded files
         run: ls -R
