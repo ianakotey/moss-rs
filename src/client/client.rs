@@ -119,7 +119,7 @@ impl<S: ToSocketAddrs> MossClient<S> {
             println!("done.");
             Ok(())
         } else {
-            whatever!("File does not exist")
+            whatever!("File does not exist");
         }
     }
 

@@ -112,7 +112,7 @@ impl<S: ToSocketAddrs> MossConfig<S> {
         self._base_files.iter()
     }
 
-    pub fn submission_files<'a>(&'a self) -> impl Iterator<Item = &PathBuf> + 'a {
+    pub fn submission_files<'a>(&'a self) -> impl Iterator<Item = &'a PathBuf> + 'a {
         self._submission_files.iter()
     }
 }
